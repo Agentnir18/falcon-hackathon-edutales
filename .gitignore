@@ -1,0 +1,21 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+
+# Environments #
+.env
+.venv
+env/
+venv/
+
+# Migration files #
+migrations/
+media/videos/
+
+dump.rdb
+
+# Miscellaneous #
+misc/
+test.py
