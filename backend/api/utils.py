@@ -36,8 +36,6 @@ def generate_story(content):
 
     messages = [{"role": "system", "content": "You are an educational storyteller who creates engaging and informative stories to help users understand scientific concepts."}]
 
-
-    content = input(f"User:")
     content_format =f"""
     Generate a scientific fictional story that explains the following content. The story should have some characters that have dialogue between them. The story must be family-friendly and use simple, everyday words for better understanding.
     Don't use cliches or stereotypes. The story should be original and creative.
@@ -50,7 +48,9 @@ def generate_story(content):
         "role": "user", 
         "content": content_format
         })
-    print(f"Falcon:", sep="", end="", flush=True)
+    # print(f"Falcon:", sep="", end="", flush=True)
+
+    story = ""
 
     for chunk in client.chat.completions.create(
         messages=messages,
@@ -59,4 +59,6 @@ def generate_story(content):
     ):
         delta_content = chunk.choices[0].delta.content
         if delta_content:
-            return delta_content
+            story += delta_content
+
+    return story
