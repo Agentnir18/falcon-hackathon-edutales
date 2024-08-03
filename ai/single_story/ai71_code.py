@@ -24,10 +24,35 @@ messages = [
     {"role": "user", "content": prompt},
 ]
 
+payload = {
+    "model": "tiiuae/falcon-180B-chat",
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an educational storyteller who creates engaging and informative stories to help users understand scientific concepts.",
+        },
+        {
+            "role": "user",
+            "content": """
+Generate a scientific fictional story that explains the following content. The story should have some characters that have dialogue between them. The story must be family-friendly and use simple, everyday words for better understanding.
+
+Ultraviolet (UV) light is electromagnetic radiation of wavelengths of 10–400 nanometers, shorter than that of visible light, but longer than X-rays. UV radiation is present in sunlight and constitutes about 10% of the total electromagnetic radiation output from the Sun. It is also produced by electric arcs, Cherenkov radiation, and specialized lights, such as mercury-vapor lamps, tanning lamps, and black lights. The photons of ultraviolet have greater energy than those of visible light, from about 3.1 to 12 electron volts, around the minimum energy required to ionize atoms. Although long-wavelength ultraviolet is not considered ionizing radiation because its photons lack sufficient energy, it can induce chemical reactions and cause many substances to glow or fluoresce. Many practical applications, including chemical and biological effects, are derived from the way that UV radiation can interact with organic molecules. These interactions can involve absorption or adjusting energy states in molecules, but do not necessarily involve heating. Short-wave ultraviolet light is ionizing radiation. Consequently, short-wave UV damages DNA and sterilizes surfaces with which it comes into contact.
+
+Please create a story where two children, Leo and Mia, visit their Uncle Max's lab and learn about UV light through a series of explanations and experiments. The story should have dialogue between the characters and explain the scientific concepts in a way that is easy to understand.
+""",
+        },
+    ],
+}
+
+
 # Generate the story
+# response = client.chat.completions.create(
+#     model="tiiuae/falcon-180B-chat",
+#     messages=messages
+# )
+
 response = client.chat.completions.create(
-    model="tiiuae/falcon-180B-chat",
-    messages=messages
+    **payload
 )
 
 # Print the generated story
