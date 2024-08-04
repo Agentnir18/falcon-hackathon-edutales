@@ -1,11 +1,10 @@
-import React from "react";
 import Profile from "../components/Profile";
 
 const teamMembers = [
   { name: "Mohammed R. Swara", image: "src/assets/0123b740d704d26d0be7c5eb3e90838f.jfif", linkedin: "#", github: "#" },
   { name: "Jerom", image: "src/assets/jerom.jfif", linkedin: "#", github: "#" },
   { name: "Sajjad Ahmed", image: "src/assets/sajjad.jpg", linkedin: "#", github: "#" },
-  { name: "Nirvan Bajracharya", image: "src/assets/sajjad.jpg", linkedin: "#", github: "#" },
+  { name: "Nirvan Bajracharya", image: "src/assets/Nir1.png", linkedin: "#", github: "#" },
   { name: "Dhruv", image: "src/assets/dhruv.jfif", linkedin: "#", github: "#" },
   { name: "Shamas", image: "src/assets/shamas.png", linkedin: "#", github: "#" },
 ];

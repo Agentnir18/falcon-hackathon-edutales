@@ -2,12 +2,16 @@ import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const categories = ['Drama', 'Tech', 'Health', 'Mystery', 'Comedy','Drama', 'Tech', 'Health', 'Mystery', 'Comedy','Drama', 'Tech', 'Health', 'Mystery', 'Comedy',];
+const categories = [
+  'Drama', 'Tech', 'Health', 'Mystery', 'Comedy',
+  'Drama', 'Tech', 'Health', 'Mystery', 'Comedy',
+  'Drama', 'Tech', 'Health', 'Mystery', 'Comedy',
+];
 
-const HorizontalSlider = () => {
-  const scrollRef = useRef(null);
+const HorizontalSlider: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction) => {
+  const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const scrollAmount = direction === 'left' ? -300 : 300;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });

@@ -1,10 +1,9 @@
-import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faXTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="bg-primaryColor pt-16 pb-4 px-6 mt-10 text-center">
+    <footer className="bg-black pt-16 pb-4 px-6 mt-10 text-center">
       <div className="flex justify-center gap-9  text-secondaryColor">
         <a href="/" className="text-secondaryColor hover:underline">
           Get the App

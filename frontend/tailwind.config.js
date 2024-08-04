@@ -11,8 +11,8 @@ export default {
         primaryColor: '#161616', 
       },
       boxShadow: {
-        'navbar': '0 4px 6px -1px rgba(#FFF3DB, 0.1), 0 2px 4px -1px rgba(#FFF3DB, 0.1)',
-        'outer-glow': '0 4px 8px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 0, 0.5)',
+        'navbar': '0 -40px 80px 0px rgba(#FFF3DB, 0.1)',
+        'outer-glow': '0 0 20px -10px rgba(0, 0, 0, 0.5)',
       },
     },
   },
