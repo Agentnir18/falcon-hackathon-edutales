@@ -1,5 +1,5 @@
 // src/pages/Results.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Card from '../components/Card';
 import cardData from '../assets/cardData.json';
 
