@@ -1,6 +1,5 @@
 from ai71 import AI71
 from decouple import config
-import random
 from .plots import Plot
 
 AI71_API_KEY = config("AI71_API_KEY")
