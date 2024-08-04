@@ -41,3 +41,34 @@ def generate_story(content):
             story += delta_content
 
     return story
+
+def sitcom_explain(content, sitcom):
+    client = AI71(AI71_API_KEY)
+
+    messages = [{"role": "system", "content": "You are an educational storyteller who uses sitcom scenarios to explain scientific concepts in an engaging and entertaining way. You must create a sitcom-style story that incorporates the given content and the sitcom scenario provided by the user."}]
+
+    content_format =f"""
+    Generate a sitcom-style story that explains the following content. The story should have some characters that have dialogue between them. The story must be family-friendly and use simple, everyday words for better understanding.
+
+    {content}
+
+    Please create a story where the characters from '{sitcom}' encounter the given content in their daily lives. The story should be set in the familiar locations of the show, with the characters engaging in their usual activities and interactions. The scientific concepts should be explained through the characters' conversations and experiences, maintaining the humor and dynamics of the sitcom.
+    """ 
+    messages.append({
+        "role": "user", 
+        "content": content_format
+        })
+    # print(f"Falcon:", sep="", end="", flush=True)
+
+    story = ""
+
+    for chunk in client.chat.completions.create(
+        messages=messages,
+        model="tiiuae/falcon-180B-chat",
+        stream=True,
+    ):
+        delta_content = chunk.choices[0].delta.content
+        if delta_content:
+            story += delta_content
+
+    return story

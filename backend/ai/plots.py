@@ -1,3 +1,5 @@
+import enum
+
 story_plots = [
     "Please create a story where two children, Leo and Mia, visit their Uncle Max's lab and learn about the above given content through a series of explanations and experiments. The story should have dialogue between the characters and explain the scientific concepts in a way that is easy to understand.",
     "Please create a story where two friends, Alex and Zoe, visit Professor Zara's enchanted garden. They encounter various plants and animals, and Professor Zara explains the given content through magical demonstrations and interactive experiments. The story should have dialogue between the characters and explain the scientific concepts in a way that is easy to understand.",
@@ -21,5 +23,29 @@ story_plots = [
     "Please create a story where a group of friends—Violet, Will, Xander, and Yara—go on a camping adventure. They explore the natural surroundings and conduct outdoor experiments related to the given content. The story should have dialogue between the characters, with each one making observations and learning together to explain the scientific concepts in a way that is easy to understand.",
     "Please create a story where a group of kids—Zane, Abby, Ben, and Cara—attend a science festival. They participate in different booths and activities that teach them about the given content. The story should have dialogue between the characters, with each one engaging in the learning process and sharing their understanding to explain the scientific concepts in a way that is easy to understand.",
     "Please create a story where a group of friends—Dylan, Emily, Finn, and Grace—visit a science museum. They explore various exhibits and participate in interactive demonstrations related to the given content. The story should have dialogue between the characters, with each friend discovering new information and explaining the scientific concepts to each other in a way that is easy to understand.",
-    
+
 ]
+
+class Sitcoms(enum.Enum):
+    THE_BIG_BANG_THEORY = "The Big Bang Theory"
+    FRIENDS = "Friends"
+    THE_OFFICE = "The Office"
+    PARKS_AND_RECREATION = "Parks and Recreation"
+    BROOKLYN_NINE_NINE = "Brooklyn Nine-Nine"
+    HOW_I_MET_YOUR_MOTHER = "How I Met Your Mother"
+    MODERN_FAMILY = "Modern Family"
+    THE_SIMPSONS = "The Simpsons"
+    SEINFELD = "Seinfeld"
+    THE_GOOD_PLACE = "The Good Place"
+    BLACKISH = "Black-ish"
+    THE_MARVELOUS_MRS_MAISEL = "The Marvelous Mrs. Maisel"
+    SCHITTS_CREEK = "Schitt's Creek"
+    THE_CROWN = "The Crown"
+    STRANGER_THINGS = "Stranger Things"
+    THE_MANDALORIAN = "The Mandalorian"
+    THE_WITCHER = "The Witcher"
+    THE_UMBRELLA_ACADEMY = "The Umbrella Academy"
+
+    @classmethod
+    def get_all_values(cls):
+        return [member.value for member in cls]
