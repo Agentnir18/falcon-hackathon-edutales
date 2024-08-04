@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useParams } from "react-router-dom";
 import cardData from "../assets/cardData.json";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";

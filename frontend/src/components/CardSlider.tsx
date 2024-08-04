@@ -2,14 +2,18 @@ import React, { useRef } from "react";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import cardData from "../assets/cardData.json";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
 
-const CardSlider = ({ title }) => {
-  const scrollRef = useRef(null);
+// Define the type for the CardSlider props
+interface CardSliderProps {
+  title: string;
+}
 
-  const scroll = (direction) => {
+const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const scrollAmount = direction === "left" ? -300 : 300;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
@@ -33,9 +37,9 @@ const CardSlider = ({ title }) => {
         </button>
         <div ref={scrollRef} className="overflow-hidden w-full">
           <div className="flex whitespace-nowrap gap-4 no-scrollbar">
-            {cardData.map((card, index) => (
-              <div key={index} className="flex-shrink-0" style={{ minWidth: "calc(100% / 5)" }}>
-                <Card {...card} />
+            {cardData.map((card) => (
+              <div key={card.id} className="flex-shrink-0" style={{ minWidth: "calc(100% / 5)" }}>
+                <Card id={card.id} image={card.image} title={card.title} />
               </div>
             ))}
           </div>

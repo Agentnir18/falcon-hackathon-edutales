@@ -1,4 +1,3 @@
-import React from "react";
 import CardSlider from "../components/CardSlider";
 
 const Home = () => {

@@ -1,8 +1,13 @@
-// src/components/Card.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ id, image, title }) => {
+interface CardProps {
+  id: number;
+  image: string;
+  title: string;
+}
+
+const Card: React.FC<CardProps> = ({ id, image, title }) => {
   return (
     <Link to={`/card/${id}`} className="block rounded-lg p-4">
       <img
