@@ -4,7 +4,7 @@ import { faFacebook, faXTwitter, faInstagram, faLinkedin } from '@fortawesome/fr
 
 const Footer = () => {
   return (
-    <footer className="bg-primaryColor pt-16 pb-4 px-6 mt-10 text-center">
+    <footer className="bg-black pt-16 pb-4 px-6 mt-10 text-center">
       <div className="flex justify-center gap-9  text-secondaryColor">
         <a href="/" className="text-secondaryColor hover:underline">
           Get the App

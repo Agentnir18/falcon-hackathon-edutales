@@ -8,9 +8,9 @@ const Home = () => {
         <h1 className="text-5xl font-bold text-secondaryColor ">Story Wise</h1>
         <h2 className="text-xl text-secondaryColor ">Learn and Enjoy</h2>
       </div>
-      <CardSlider />
-      <CardSlider />
-      <CardSlider />
+      <CardSlider title="New Stories" />
+      <CardSlider title="Trending" />
+      <CardSlider title="Collection" />
     </div>
   );
 };

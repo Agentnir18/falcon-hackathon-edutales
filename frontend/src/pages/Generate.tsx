@@ -1,44 +1,74 @@
-import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import TypingEffect from '../components/TypingEffect'; // Import the TypingEffect component
+import NavBar from '../components/NavBar';
 
 const Generate = () => {
   const [prompts] = useState([
     'How honeybee makes honey?',
     'Explain the theory of gravity.',
     'Biochemistry in a nutshell.'
-  ])
-  const [userPrompt, setUserPrompt] = useState('')
-  const [sidebarOpen, setSidebarOpen] = useState(true)
-  const [chatMessages, setChatMessages] = useState([])
+  ]);
+  const [userPrompt, setUserPrompt] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [chatMessages, setChatMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const handlePromptChange = (e) => {
-    setUserPrompt(e.target.value)
-  }
+  const handlePromptChange = (e: { target: { value: React.SetStateAction<string> } }) => {
+    setUserPrompt(e.target.value);
+  };
 
-  const handlePromptSubmit = (prompt) => {
+  const fetchAIResponse = async (prompt: string) => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://falcon-hackathon-edutales.onrender.com/api/v1/generate-story/", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: prompt })
+      });
+      const data = await response.json();
+      console.log(data);
+      return data.data.story;
+    } catch (error) {
+      console.error('Error fetching AI response:', error);
+      return 'Sorry, an error occurred while fetching the response. Please try again later.';
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePromptSubmit = async (prompt: string) => {
     if (prompt.trim()) {
       setChatMessages(prevMessages => [
         ...prevMessages,
-        { sender: 'user', message: prompt },
-        { sender: 'ai', message: 'Sorry, new stories will come soon.' }
-      ])
-      setUserPrompt('')
+        { sender: 'user', message: prompt }
+      ]);
+
+      const aiMessage = await fetchAIResponse(prompt);
+
+      setChatMessages(prevMessages => [
+        ...prevMessages,
+        { sender: 'ai', message: aiMessage }
+      ]);
+      setUserPrompt('');
     }
-  }
+  };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault()
-    handlePromptSubmit(userPrompt)
-  }
+  const handleFormSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    handlePromptSubmit(userPrompt);
+  };
 
-  const handleSamplePromptClick = (prompt) => {
-    handlePromptSubmit(prompt)
-  }
+  const handleSamplePromptClick = (prompt: string) => {
+    handlePromptSubmit(prompt);
+  };
 
   const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen)
-  }
+    setSidebarOpen(!sidebarOpen);
+  };
 
   return (
     <div className="flex h-screen">
@@ -63,11 +93,12 @@ const Generate = () => {
         <div className='flex flex-col justify-start bg-primaryColor text-secondaryColor p-4'>
           <FontAwesomeIcon icon={faPlus} className="mx-4 pt-4 cursor-pointer" onClick={toggleSidebar} />
         </div>
-          
-        )}
+      )}
       {/* Main content */}
       <div className={`flex-1 bg-primaryColor flex flex-col `}>
+      <NavBar />
         <div className="flex-1 overflow-auto p-4">
+          
           {chatMessages.length === 0 ? (
             /* Heading and Sample prompts section */
             <div className="flex flex-col items-center justify-center h-full">
@@ -90,17 +121,30 @@ const Generate = () => {
             </div>
           ) : (
             /* Chat messages section */
-            <div className="flex flex-col px-60 space-y-4">
+            <div className="flex flex-col px-48 space-y-4">
               {chatMessages.map((message, index) => (
-                <div key={index} className={`p-4 rounded-lg ${message.sender === 'user' ? 'bg-black text-secondaryColor self-end' : ' text-secondaryColor self-start'}`}>
-                  {message.message}
+                <div key={index} className={`p-4 rounded-lg ${message.sender === 'user' ? 'bg-black max-w-[70%] text-secondaryColor self-end' : 'text-secondaryColor self-start'}`}>
+                  {message.sender === 'ai' ? (
+                    <TypingEffect message={message.message} />
+                  ) : (
+                    <p className='whitespace-pre-line'>{message.message}</p>
+                  )}
                 </div>
               ))}
+              {loading && (
+                <div className="flex items-center py-2">
+                  <div className="flex space-x-1">
+                    <div className="dot w-2 h-2 bg-secondaryColor rounded-full animate-wave"></div>
+                    <div className="dot w-2 h-2 bg-secondaryColor rounded-full animate-wave animation-delay-200"></div>
+                    <div className="dot w-2 h-2 bg-secondaryColor rounded-full animate-wave animation-delay-400"></div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
         {/* Text input section to enter user prompt */}
-        <div className="p-4 bg-primaryColor ">
+        <div className="p-4 bg-primaryColor">
           <form onSubmit={handleFormSubmit} className="flex items-center">
             <input 
               type="text" 
@@ -116,7 +160,7 @@ const Generate = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Generate
+export default Generate;
