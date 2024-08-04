@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
-from .utils import CustomResponse, generate_story
+from .utils import CustomResponse
+from ai.story_generator import generate_story
 from .serializers import ContentSerializer
 
 class GenerateStory(APIView):
