@@ -58,3 +58,17 @@ class SitcomExplain(APIView):
             story = sitcom_explain(content, sitcom)
             return CustomResponse(message="Successfully generated story", data={"story": story}).success_response()
         return CustomResponse(message="Error generating videos", data=serializer.errors).failure_response()
+    
+class Runner(APIView):
+    """
+    API endpoint to keep the server active and prevent it from sleeping.
+    This is useful when deploying the API on platforms like Render.
+
+    Only GET method is allowed.
+
+    successful response: {
+        "message": "Server is running"
+    } 
+    """
+    def get(self, request):
+        return CustomResponse(message="Server is running").success_response()
