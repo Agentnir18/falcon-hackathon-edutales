@@ -19,33 +19,6 @@ def analyze_content_langchain(content):
         streaming=True,
     )
 
-    prompt_summarizer = f"""
-    You are an expert content analyzer. Given the following content, analyze it and provide a detailed summary of the key points. 
-    
-    Content:
-    {content}
-    
-    The summary should be concise and informative, highlighting the main ideas and key takeaways. The content may contain scientific concepts, technical information, or general knowledge. Your analysis should be clear, accurate, and well-structured. Avoid unnecessary details and focus on the most important aspects of the content.
-
-    If the content is incomprehensible say so in the response. 
-
-    Your response should strictly follow the format below:
-    [
-        Understandable: "Yes/No",
-        Summary: "Brief summary of the content",
-        Key Points: ["Point 1", "Point 2", ...],
-    ]
-
-    The "Understandable" field should indicate whether the content is understandable or not. 
-    If the content is not understandable, return "No" for the "Understandable" field and leave the "Summary" and "Key Points" fields empty.
-    If the content is random letters or gibberish, return "No" for the "Understandable" field and leave the "Summary" and "Key Points" fields empty.
-    If the content is understandable, provide a brief summary and list the key points.
-    The "Summary" field should provide a concise overview of the content. The "Key Points" field should list the main ideas and key takeaways from the content.
-
-    Your response should not contain any additional information or text. Only provide the required fields in the specified format.
-
-    """
-
     prompt = f"""
 You are an expert analyzer. Given the content below, analyze it and provide a list of key points. \n
 The content may contain scientific concepts, technical information, or general knowledge. \n
@@ -74,13 +47,50 @@ Your response should strictly follow the format below:\n
 5. The "Key Points" field should list all the concepts in the content.\n
 
 Do not include any additional description in your response. Only provide the required fields in the specified format.\n   
+Respond strictly in JSON format without any additional description or any markdown formatting.\n
 """
 
     for chunk in chat.stream(prompt):
         print(chunk.content, end="", flush=True)
 
 
+def generate_plot_langchain():
+    chat = ChatOpenAI(
+        model="tiiuae/falcon-180B-chat",
+        api_key=AI71_API_KEY,
+        base_url=AI71_BASE_URL,
+        streaming=True,
+    )
 
+    prompt = f"""
+You are a creative writer. Your task is to generate the plot for a fictional story.\n
+You can use any genre, setting, or characters for the plot.\n
 
-content = input("Enter the content: ")
-analyze_content_langchain(content)
+1. Only generate the plot for a story.\n
+2. The characters of the plot should be specified.\n
+3. The characters must be human.\n
+4. The plot must be family-friendly.\n
+5. Don't use cliches or stereotypes.\n
+6. The plots must be useful for generating stories that can be used for explaining concepts.\n
+
+Your response should strictly follow the format below:\n
+[
+    "plot": "Your generated plot here"
+    "characters": ["Character 1", "Character 2", ...]
+]
+
+Do not include any additional description in your response. Only provide the required fields in the specified format.\n
+Respond strictly in JSON format without any additional description or any markdown formatting.\n
+    """
+
+    response = ""
+    for chunk in chat.stream(prompt):
+        print(chunk.content, end="", flush=True)
+        response += chunk.content
+
+    response_dict = eval(response)
+
+# content = input("Enter the content: ")
+# analyze_content_langchain(content)
+
+generate_plot_langchain()
