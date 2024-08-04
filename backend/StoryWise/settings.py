@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
@@ -64,6 +65,12 @@ DATABASES = {
     }
 }
 
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -92,3 +99,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = 'staticfiles/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
