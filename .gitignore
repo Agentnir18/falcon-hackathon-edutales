@@ -19,3 +19,4 @@ dump.rdb
 # Miscellaneous #
 misc/
 test.py
+node_modules

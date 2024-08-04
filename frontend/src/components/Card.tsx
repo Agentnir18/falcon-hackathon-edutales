@@ -1,17 +1,19 @@
+// src/components/Card.tsx
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = ({ image, title }) => {
+const Card = ({ id, image, title }) => {
   return (
-    <div className="rounded-lg p-4">
+    <Link to={`/card/${id}`} className="block rounded-lg p-4">
       <img
         src={image}
         alt={title}
-        className="rounded-lg shadow-outer-glow shadow-secondaryColor" // Adjust shadow-lg as needed for the glow effect
+        className="rounded-lg shadow-outer-glow shadow-secondaryColor"
       />
-      <h3 className="text-lg font-medium text-secondaryColor mt-5 text-center"> {/* Center align the label */}
+      <h3 className="text-lg font-medium text-secondaryColor mt-5 text-center text-wrap">
         {title}
       </h3>
-    </div>
+    </Link>
   );
 };
 
