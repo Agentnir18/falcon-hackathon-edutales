@@ -92,4 +92,4 @@ Your response must not contain any other text.
 
     print("\n")
 
-generate_story_from_input_using_prompt_with_restrictions()
+generate_story_from_input()
