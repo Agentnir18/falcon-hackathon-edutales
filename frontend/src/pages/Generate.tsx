@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import TypingEffect from '../components/TypingEffect'; 
+import TypingEffect from '../components/TypingEffect';
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -18,9 +18,14 @@ const Generate: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [selectedSitcom, setSelectedSitcom] = useState<string>('None');
 
   const handlePromptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserPrompt(e.target.value);
+  };
+
+  const handleSitcomChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedSitcom(e.target.value);
   };
 
   const fetchAIResponse = async (prompt: string): Promise<string> => {
@@ -44,32 +49,15 @@ const Generate: React.FC = () => {
     }
   };
 
-  const handlePromptSubmit = async (prompt: string) => {
-    if (prompt.trim()) {
-      setChatMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: 'user', message: prompt },
-      ]);
-
-      const aiMessage = await fetchAIResponse(prompt);
-
-      setChatMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: 'ai', message: aiMessage },
-      ]);
-      setUserPrompt('');
-    }
-  };
-
-  const fetchSitcomAIResponse = async (prompt: string): Promise<string> => {
+  const fetchSitcomAIResponse = async (prompt: string, sitcom: string): Promise<string> => {
     setLoading(true);
     try {
-      const response = await fetch("https://falcon-hackathon-edutales.onrender.com/api/v1/generate-story/", {
+      const response = await fetch("https://falcon-hackathon-edutales.onrender.com/api/v1/sitcom-explain/", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ content: prompt }),
+        body: JSON.stringify({ content: prompt, sitcom: sitcom }),
       });
       const data = await response.json();
       console.log(data);
@@ -79,6 +67,25 @@ const Generate: React.FC = () => {
       return 'Sorry, an error occurred while fetching the response. Please try again later.';
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handlePromptSubmit = async (prompt: string) => {
+    if (prompt.trim()) {
+      setChatMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'user', message: prompt },
+      ]);
+
+      const aiMessage = selectedSitcom === 'None'
+        ? await fetchAIResponse(prompt)
+        : await fetchSitcomAIResponse(prompt, selectedSitcom);
+
+      setChatMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'ai', message: aiMessage },
+      ]);
+      setUserPrompt('');
     }
   };
 
@@ -105,6 +112,17 @@ const Generate: React.FC = () => {
             <FontAwesomeIcon icon={faPlus} className="cursor-pointer" />
           </div>
           <div>
+            <select
+              value={selectedSitcom}
+              onChange={handleSitcomChange}
+              className="bg-black text-secondaryColor border-2 border-secondaryColor rounded-lg p-2 my-4"
+            >
+              <option value="None">Select Sitcom</option>
+              <option value="The Big Bang Theory">The Big Bang Theory</option>
+              <option value="Friends">Friends</option>
+              <option value="How I Met Your Mother">How I Met Your Mother</option>
+              <option value="The Office">The Office</option>
+            </select>
             <h2 className="text-xl font-bold text-secondaryColor py-2">Recent</h2>
             <p className="text-m text-secondaryColor py-1">Topic name</p>
             <p className="text-m text-secondaryColor py-1">Topic name</p>
@@ -183,7 +201,7 @@ const Generate: React.FC = () => {
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </form>
-          <span className=' self-center mt-2 text-sm text-secondaryColor opacity-50'>This is a demo site so results may vary and take time</span>
+          <span className="self-center mt-2 text-sm text-secondaryColor opacity-50">This is a demo site so results may vary and take time</span>
         </div>
       </div>
     </div>

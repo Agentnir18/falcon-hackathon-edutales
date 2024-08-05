@@ -9,7 +9,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ id, image, title }) => {
   return (
-    <Link to={`/card/${id}`} className="block rounded-lg p-4">
+    <Link to={`/card/${id}`} className="block w-[200px] rounded-lg ">
       <img
         src={image}
         alt={title}

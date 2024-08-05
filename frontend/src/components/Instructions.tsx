@@ -11,8 +11,8 @@ const tutorialSteps = [
     },
     {
       step: 2,
-      heading: "Choose Story/Sitcom",
-      description: "Select your favorite story or sitcom from our vast collection.",
+      heading: "Choose Sitcom",
+      description: "Select your favorite sitcom from our vast collection.",
       icon: faSearch
     },
     {

@@ -11,7 +11,7 @@ const Home = () => {
           <h1 className="text-5xl font-bold text-secondaryColor">Story Wise</h1>
           <h2 className="text-xl text-secondaryColor">Learn and Enjoy</h2>
         </div>
-        <Link to="/stories" className="bg-secondaryColor text-primaryColor font-bold px-4 py-2 rounded-md">
+        <Link to="/generate" target="_blank" rel="noopener noreferrer" className="bg-secondaryColor text-primaryColor font-bold px-4 py-2 rounded-md">
           Try Now
         </Link>
       </div>
