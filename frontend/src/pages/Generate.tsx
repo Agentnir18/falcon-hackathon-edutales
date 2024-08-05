@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import TypingEffect from '../components/TypingEffect'; // Import the TypingEffect component
-import NavBar from '../components/NavBar';
+import TypingEffect from '../components/TypingEffect'; 
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -62,6 +61,27 @@ const Generate: React.FC = () => {
     }
   };
 
+  const fetchSitcomAIResponse = async (prompt: string): Promise<string> => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://falcon-hackathon-edutales.onrender.com/api/v1/generate-story/", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: prompt }),
+      });
+      const data = await response.json();
+      console.log(data);
+      return data.data.story;
+    } catch (error) {
+      console.error('Error fetching AI response:', error);
+      return 'Sorry, an error occurred while fetching the response. Please try again later.';
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handlePromptSubmit(userPrompt);
@@ -101,7 +121,6 @@ const Generate: React.FC = () => {
       )}
       {/* Main content */}
       <div className={`flex-1 bg-primaryColor flex flex-col`}>
-        <NavBar />
         <div className="flex-1 overflow-auto p-4">
           {chatMessages.length === 0 ? (
             /* Heading and Sample prompts section */
@@ -151,7 +170,7 @@ const Generate: React.FC = () => {
           )}
         </div>
         {/* Text input section to enter user prompt */}
-        <div className="p-4 bg-primaryColor">
+        <div className="p-4 flex flex-col bg-primaryColor">
           <form onSubmit={handleFormSubmit} className="flex items-center">
             <input
               type="text"
@@ -164,6 +183,7 @@ const Generate: React.FC = () => {
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </form>
+          <span className=' self-center mt-2 text-sm text-secondaryColor opacity-50'>This is a demo site so results may vary and take time</span>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ id, image, title }) => {
       <img
         src={image}
         alt={title}
-        className="rounded-lg shadow-outer-glow shadow-secondaryColor"
+        className="rounded-lg w-[200px] h-[300px] object-cover shadow-outer-glow shadow-secondaryColor"
       />
       <h3 className="text-lg font-medium text-secondaryColor mt-5 text-center text-wrap">
         {title}

@@ -1,108 +1,108 @@
 [
     {
       "id": 1,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/The baby robot .jpg",
       "title": "The Robot Kid"
     },
     {
       "id": 2,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/Gemini_Generated_Image_zdysc8zdysc8zdys.jpeg",
       "title": "How I meet my heart"
     },
     {
       "id": 3,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/Super soap.jpg",
       "title": "Super Soap"
     },
     {
       "id": 4,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/The quantum world.jpg",
       "title": "A trip to the quantum world"
     },
     {
       "id": 5,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/The silent theft.jpg",
       "title": "The beloved silent thief"
     },
     {
       "id": 6,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/The fairy night.jpg",
       "title": "Another Story"
     },
     {
       "id": 7,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "Yet Another Story"
+      "image": "/src/assets/Story Wise/The baby robot .jpg",
+      "title": "The Robot Kid"
     },
     {
       "id": 8,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "The Robot Kid"
+      "image": "/src/assets/Story Wise/Gemini_Generated_Image_zdysc8zdysc8zdys.jpeg",
+      "title": "How I meet my heart"
     },
     {
       "id": 9,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "How I meet my heart"
+      "image": "/src/assets/Story Wise/Super soap.jpg",
+      "title": "Super Soap"
     },
     {
       "id": 10,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "Super Soap"
+      "image": "/src/assets/Story Wise/The quantum world.jpg",
+      "title": "A trip to the quantum world"
     },
     {
       "id": 11,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "A trip to the quantum world"
+      "image": "/src/assets/Story Wise/The silent theft.jpg",
+      "title": "The beloved silent thief"
     },
     {
       "id": 12,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "The beloved silent thief"
+      "image": "/src/assets/Story Wise/The fairy night.jpg",
+      "title": "Another Story"
     },
     {
       "id": 13,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "Another Story"
-    },
-    {
-      "id": 14,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "Yet Another Story"
-    },
-    {
-      "id": 15,
-      "image": "https://via.placeholder.com/200x200",
+      "image": "/src/assets/Story Wise/The baby robot .jpg",
       "title": "The Robot Kid"
     },
     {
-      "id": 16,
-      "image": "https://via.placeholder.com/200x200",
+      "id": 14,
+      "image": "/src/assets/Story Wise/Gemini_Generated_Image_zdysc8zdysc8zdys.jpeg",
       "title": "How I meet my heart"
     },
     {
-      "id": 17,
-      "image": "https://via.placeholder.com/200x200",
+      "id": 15,
+      "image": "/src/assets/Story Wise/Super soap.jpg",
       "title": "Super Soap"
     },
     {
-      "id": 18,
-      "image": "https://via.placeholder.com/200x200",
+      "id": 16,
+      "image": "/src/assets/Story Wise/The quantum world.jpg",
       "title": "A trip to the quantum world"
     },
     {
-      "id": 19,
-      "image": "https://via.placeholder.com/200x200",
+      "id": 17,
+      "image": "/src/assets/Story Wise/The silent theft.jpg",
       "title": "The beloved silent thief"
     },
     {
-      "id": 20,
-      "image": "https://via.placeholder.com/200x200",
+      "id": 18,
+      "image": "/src/assets/Story Wise/The fairy night.jpg",
       "title": "Another Story"
     },
     {
+      "id": 19,
+      "image": "/src/assets/Story Wise/The baby robot .jpg",
+      "title": "The Robot Kid"
+    },
+    {
+      "id": 20,
+      "image": "/src/assets/Story Wise/Gemini_Generated_Image_zdysc8zdysc8zdys.jpeg",
+      "title": "How I meet my heart"
+    },
+    {
       "id": 21,
-      "image": "https://via.placeholder.com/200x200",
-      "title": "Yet Another Story"
+      "image": "/src/assets/Story Wise/Super soap.jpg",
+      "title": "Super Soap"
     }
   ]
   

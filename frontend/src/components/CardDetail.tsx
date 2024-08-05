@@ -1,5 +1,4 @@
-
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import cardData from "../assets/cardData.json";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,7 +26,7 @@ const CardDetail = () => {
           <h1 className="text-2xl font-bold text-secondaryColor">
             {card.title}
           </h1>
-          <div className="flex whitespace-nowrap my-3 no-scrollbar ">
+          <div className="flex whitespace-wrap my-3 no-scrollbar ">
             {categories.map((category, index) => (
               <button
                 key={index}
@@ -41,9 +40,17 @@ const CardDetail = () => {
             Add to favourites
             <FontAwesomeIcon icon={faHeart} className="ml-2" />
           </button>
+          <div className="mt-6">
+            <Link
+              to="/generate" target="_blank" rel="noopener noreferrer"
+              className="bg-secondaryColor text-primaryColor font-bold px-4 py-2 rounded-md"
+            >
+              Let's generate!
+            </Link>
+          </div>
         </div>
       </div>
-      <p className="mt-6 w-full max-w-4xl whitespace-pre-line text-secondaryColor">
+      <p className="mt-6 w-full max-w-4xl text-justify text-secondaryColor">
         Once upon a time, in a bustling city called Sudsyville, lived a very
         special soap named Sudsy. He wasn't just any soap; he was a superhero
         soap with a mission to keep the city sparkling clean! Sudsy was made of
