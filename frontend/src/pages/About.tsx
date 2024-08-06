@@ -1,12 +1,12 @@
 import Profile from "../components/Profile";
 
 const teamMembers = [
-  { name: "Mohammed R. Swara", image: "src/assets/0123b740d704d26d0be7c5eb3e90838f.jfif", linkedin: "#", github: "#" },
-  { name: "Jerom", image: "src/assets/jerom.jfif", linkedin: "#", github: "#" },
-  { name: "Sajjad Ahmed", image: "src/assets/sajjad.jpg", linkedin: "#", github: "#" },
-  { name: "Nirvan Bajracharya", image: "src/assets/Nir1.png", linkedin: "#", github: "#" },
-  { name: "Dhruv", image: "src/assets/dhruv.jfif", linkedin: "#", github: "#" },
-  { name: "Shamas", image: "src/assets/shamas.png", linkedin: "#", github: "#" },
+  { name: "Mohammed R. Swara", image: "src/assets/0123b740d704d26d0be7c5eb3e90838f.jfif", linkedin: "https://iq.linkedin.com/in/mohammed-swara-3a4673182" },
+  { name: "Jerom Jo", image: "src/assets/jerom.jfif", linkedin: "https://www.linkedin.com/in/jerom-jo-manthara", github: "https://github.com/lordgrim18" },
+  { name: "Sajjad Ahmed", image: "src/assets/sajjad.jpg", linkedin: "https://www.linkedin.com/in/sajjad-ahmad-609a84266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" },
+  { name: "Nirvan Bajracharya", image: "src/assets/Nir1.png", linkedin: "https://www.linkedin.com/in/nirvanbajracharya/", github: "https://github.com/Agentnir18" },
+  { name: "Dhruvaraj Nikam", image: "src/assets/dhruv.jfif", linkedin: "https://www.linkedin.com/in/dhruvaraj-nikam-778702259/", github: "https://github.com/dhruvarajnikkam" },
+  { name: "Shamas Liaqat", image: "src/assets/shamas.png", linkedin: "https://www.linkedin.com/in/shamasliaqat/", github: "https://github.com/Shamas245" },
 ];
 
 const About = () => {

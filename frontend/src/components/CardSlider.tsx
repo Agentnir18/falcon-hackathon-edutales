@@ -37,7 +37,7 @@ const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
         </button>
         <div ref={scrollRef} className="overflow-hidden w-full">
           <div className="flex whitespace-nowrap gap-4 no-scrollbar">
-            {cardData.map((card) => (
+            {cardData.slice(0, 9).map((card) => (
               <div key={card.id} className="flex-shrink-0" style={{ minWidth: "calc(100% / 5)" }}>
                 <Card id={card.id} image={card.image} title={card.title} />
               </div>

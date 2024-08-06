@@ -19,7 +19,7 @@ const HorizontalSlider: React.FC = () => {
   };
 
   return (
-    <div className='relative flex items-center justify-center py-10'>
+    <div className='relative flex items-center justify-center mx-14 py-10'>
       <button 
         onClick={() => scroll('left')} 
         className='left-0 z-10 bg-primaryColor text-secondaryColor border-2 border-secondaryColor rounded-full p-2 hover:bg-secondaryColor hover:text-primaryColor focus:outline-none'
