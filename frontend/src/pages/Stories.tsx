@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import HorizontalSlider from '../components/HorizontalSlider';
-import Results from '../components/Results';
+import Results from '../components/StoryResults';
 
 
 const Stories = () => {

@@ -1,12 +1,12 @@
 // src/pages/Results.tsx
 import { useState } from 'react';
-import Card from '../components/Card';
+import Card from './Card';
 import cardData from '../assets/cardData.json';
 
 const Results = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 20;
-  const totalPages = Math.ceil(cardData.length / cardsPerPage);
+  const totalPages = Math.ceil(cardData.stories.length / cardsPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -26,7 +26,7 @@ const Results = () => {
 
   const startIndex = (currentPage - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
-  const currentCards = cardData.slice(startIndex, endIndex);
+  const currentCards = cardData.stories.slice(startIndex, endIndex);
 
   return (
     <div className='flex justify-center items-center flex-col py-4'>

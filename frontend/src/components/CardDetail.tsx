@@ -8,7 +8,7 @@ const categories = ["Drama", "Tech", "Health", "Mystery"];
 const CardDetail = () => {
   const { id } = useParams<{ id: string }>(); // Type the params object
   const cardId = parseInt(id || "", 10); // Convert id to a number, default to 0 if undefined
-  const card = cardData.find((card) => card.id === cardId);
+  const card = cardData.stories.find((card) => card.id === cardId);
 
   if (!card) {
     return <div>Card not found</div>;

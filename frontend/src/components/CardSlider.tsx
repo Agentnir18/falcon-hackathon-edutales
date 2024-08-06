@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom";
-import cardData from "../assets/cardData.json";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import cardData from "../assets/cardData.json";
 
 // Define the type for the CardSlider props
 interface CardSliderProps {
@@ -11,6 +10,7 @@ interface CardSliderProps {
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
+  const [isStories, setIsStories] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -20,13 +20,42 @@ const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
     }
   };
 
+  const handleToggle = () => {
+    setIsStories((prev) => !prev);
+  };
+
+  const dataToDisplay = isStories ? cardData.stories : cardData.sitcoms;
+
   return (
     <div className="mx-10 mt-10 relative">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-bold text-secondaryColor">{title}</h2>
-        <Link to={"/stories"} className="text-secondaryColor py-2 px-4 rounded-full">
-          See More &gt;
-        </Link>
+        {/* Toggle Stories/Sitcoms button */}
+        <div className="relative inline-block w-40 h-10">
+          <div
+            className={`absolute top-0 bottom-0 w-[50%] bg-secondaryColor transition-transform rounded-full duration-300 ${
+              isStories ? "transform translate-x-0" : "transform translate-x-full"
+            }`}
+          />
+          <div className="absolute inset-0 border-2 border-secondaryColor rounded-full flex items-center justify-between px-2">
+            <button
+              onClick={() => setIsStories(true)}
+              className={`w-1/2 text-center py-2 pr-2 rounded-l-full ${
+                isStories ? "text-primaryColor" : "text-secondaryColor"
+              }`}
+            >
+              Stories
+            </button>
+            <button
+              onClick={() => setIsStories(false)}
+              className={`w-1/2 text-center py-2 pl-2 rounded-r-full ${
+                isStories ? "text-secondaryColor" : "text-primaryColor"
+              }`}
+            >
+              Sitcoms
+            </button>
+          </div>
+        </div>
       </div>
       <div className="flex justify-between items-center relative">
         <button
@@ -37,7 +66,7 @@ const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
         </button>
         <div ref={scrollRef} className="overflow-hidden w-full">
           <div className="flex whitespace-nowrap gap-4 no-scrollbar">
-            {cardData.slice(0, 9).map((card) => (
+            {dataToDisplay.slice(0, 9).map((card) => (
               <div key={card.id} className="flex-shrink-0" style={{ minWidth: "calc(100% / 5)" }}>
                 <Card id={card.id} image={card.image} title={card.title} />
               </div>
@@ -56,3 +85,4 @@ const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
 };
 
 export default CardSlider;
+

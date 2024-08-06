@@ -201,7 +201,7 @@ const Generate: React.FC = () => {
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </form>
-          <span className="self-center mt-2 text-sm text-secondaryColor opacity-50">This is a demo site so results may vary and take time</span>
+          <span className="self-center mt-2 text-sm font-sans text-secondaryColor opacity-50">This is a demo site so results may vary and take time</span>
         </div>
       </div>
     </div>
