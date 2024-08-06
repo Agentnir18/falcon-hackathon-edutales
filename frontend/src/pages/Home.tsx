@@ -14,6 +14,7 @@ const Home = () => {
         <Link to="/generate" target="_blank" rel="noopener noreferrer" className="bg-secondaryColor text-primaryColor font-bold px-4 py-2 rounded-md">
           Try Now
         </Link>
+        <img src="src/assets/Picsart.jpg" alt="hero" className="absolute right-0 top-0 w-[50%] h-[50%] z-[-1]" />
       </div>
 
       {/* Project Section */}
