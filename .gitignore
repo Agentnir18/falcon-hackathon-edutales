@@ -14,9 +14,14 @@ venv/
 migrations/
 media/videos/
 
+db.sqlite3
+
 dump.rdb
 
 # Miscellaneous #
 misc/
 test.py
 node_modules
+
+# Local Netlify folder
+.netlify
