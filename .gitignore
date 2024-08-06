@@ -22,3 +22,6 @@ dump.rdb
 misc/
 test.py
 node_modules
+
+# Local Netlify folder
+.netlify
