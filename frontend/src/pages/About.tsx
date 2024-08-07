@@ -4,7 +4,7 @@ const teamMembers = [
   {
     name: "Mohammed R. Swara",
     image: "src/assets/0123b740d704d26d0be7c5eb3e90838f.jfif",
-    role: "Frontend Developer",
+    role: "UI/UX Designer",
     linkedin: "https://iq.linkedin.com/in/mohammed-swara-3a4673182",
   },
   {
@@ -17,7 +17,7 @@ const teamMembers = [
   {
     name: "Sajjad Ahmed",
     image: "src/assets/sajjad.jpg",
-    role: "Frontend Developer",
+    role: "",
     linkedin:
       "https://www.linkedin.com/in/sajjad-ahmad-609a84266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
@@ -31,14 +31,14 @@ const teamMembers = [
   {
     name: "Dhruvaraj Nikam",
     image: "src/assets/dhruv.jfif",
-    role: "Frontend Developer",
+    role: "",
     linkedin: "https://www.linkedin.com/in/dhruvaraj-nikam-778702259/",
     github: "https://github.com/dhruvarajnikkam",
   },
   {
     name: "Shamas Liaqat",
     image: "src/assets/shamas.png",
-    role: "Frontend Developer",
+    role: "Assistant AI Engineer",
     linkedin: "https://www.linkedin.com/in/shamasliaqat/",
     github: "https://github.com/Shamas245",
   },

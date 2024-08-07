@@ -1,5 +1,5 @@
 // src/App.tsx
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Stories from "./pages/Stories";
@@ -10,8 +10,10 @@ import Footer from "./components/Footer";
 import CardDetail from "./components/CardDetail";
 
 const App = () => {
+  const location = useLocation();
+
   return (
-    <Router>
+    <>
       {location.pathname !== "/generate" && <NavBar />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,8 +24,14 @@ const App = () => {
         <Route path="/card/:id" element={<CardDetail />} />
       </Routes>
       {location.pathname !== "/generate" && <Footer />}
-    </Router>
+    </>
   );
 };
 
-export default App;
+const AppWrapper = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default AppWrapper;
