@@ -46,9 +46,9 @@
 
 ## Features of Story Wise
 
-- **Generate Stories/Sitcom scripts using AI:** User inputs their topic and understands through generated stories/sitcom scripts
-- **Search:** Users can search from our vast collection.
-- **Filter:** Users can filter from our vast collection.
+- **Generate Stories:** Users input their topic and receive generated stories for better understanding.
+- **Generate Sitcom Scripts:** Users input their topic and receive generated sitcom scripts for better understanding.
+- **Story Collection:** Sample stories and sitcom scripts are available for users to explore. Creative users can also add their own stories to the collection.
 
 ## React + TypeScript + Vite
 
