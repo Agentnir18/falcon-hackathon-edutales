@@ -14,7 +14,11 @@ const Home = () => {
         <Link to="/generate" className="bg-secondaryColor text-primaryColor font-bold px-4 py-2 rounded-md">
           Try Now
         </Link>
-        <img src="assets/Picsart.jpg" alt="hero" className="absolute right-0 top-0 w-[50%] h-[60vh] z-[-1]" />
+        <img 
+          src="assets/Picsart.jpg" 
+          alt="hero" 
+          className="absolute right-0 top-0 w-full h-auto max-w-full max-h-[60vh] object-cover z-[-1]" 
+        />
       </div>
 
       {/* Project Section */}
