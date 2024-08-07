@@ -21,7 +21,7 @@ Story Wise aims to revolutionize education by making learning more intuitive, en
 
 ### Home Page
 
-![Home Page](./screenshots/home_page.png)
+![Home Page](./screenshots/Home.png)
 
 ### Generate Story
 
@@ -29,7 +29,15 @@ Story Wise aims to revolutionize education by making learning more intuitive, en
 
 ### Story Result
 
-![Story Result](./screenshots/story_result.png)
+![Story Result](./screenshots/generate_story-2.png)
+
+### Generate Sitcom Script
+
+![Generate Sitcom Script](./screenshots/generate_sitcom.png)
+
+### Sitcom Script Result
+
+![Sitcom Script Result](./screenshots/generate_sitcom_2.png)
 
 ## Frontend Setup
 
