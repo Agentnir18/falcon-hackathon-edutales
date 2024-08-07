@@ -23,7 +23,7 @@ const teamMembers = [
   },
   {
     name: "Nirvan Bajracharya",
-    image: "src/assets/Nir1.png",
+    image: "https://github.com/Agentnir18/falcon-hackathon-edutales/blob/master/frontend/src/assets/Nir1.png?raw=true",
     role: "Frontend Developer",
     linkedin: "https://www.linkedin.com/in/nirvanbajracharya/",
     github: "https://github.com/Agentnir18",
