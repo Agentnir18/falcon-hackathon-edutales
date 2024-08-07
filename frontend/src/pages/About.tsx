@@ -17,7 +17,7 @@ const teamMembers = [
   {
     name: "Sajjad Ahmed",
     image: "assets/sajjad.jpg",
-    role: "",
+    role: "Content creator",
     linkedin:
       "https://www.linkedin.com/in/sajjad-ahmad-609a84266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
@@ -31,7 +31,7 @@ const teamMembers = [
   {
     name: "Dhruvaraj Nikam",
     image: "assets/dhruv.jfif",
-    role: "",
+    role: "Content creator",
     linkedin: "https://www.linkedin.com/in/dhruvaraj-nikam-778702259/",
     github: "https://github.com/dhruvarajnikkam",
   },
