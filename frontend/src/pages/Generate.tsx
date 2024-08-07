@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import TypingEffect from '../components/TypingEffect';
+import { Link } from 'react-router-dom';
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -19,6 +20,7 @@ const Generate: React.FC = () => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedSitcom, setSelectedSitcom] = useState<string>('None');
+  const [isStories, setIsStories] = useState<boolean>(true);
 
   const handlePromptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserPrompt(e.target.value);
@@ -77,7 +79,7 @@ const Generate: React.FC = () => {
         { sender: 'user', message: prompt },
       ]);
 
-      const aiMessage = selectedSitcom === 'None'
+      const aiMessage = isStories
         ? await fetchAIResponse(prompt)
         : await fetchSitcomAIResponse(prompt, selectedSitcom);
 
@@ -109,9 +111,37 @@ const Generate: React.FC = () => {
         <div className="w-64 flex flex-col justify-start bg-black text-secondaryColor border-secondaryColor border-2 rounded-lg p-4 relative">
           <div className="flex flex-row justify-between">
             <FontAwesomeIcon icon={faTimes} className="cursor-pointer" onClick={toggleSidebar} />
+            <Link to="/" className="bg-primaryColor rounded-full text-xs border-2  border-secondaryColor px-10 py-1 text-secondaryColor hover:bg-secondaryColor hover:text-primaryColor">
+          Home
+        </Link>
             <FontAwesomeIcon icon={faPlus} className="cursor-pointer" />
           </div>
-          <div>
+          <div className="relative inline-block w-full h-10 my-4">
+            <div
+              className={`absolute top-0 bottom-0 w-[50%] bg-secondaryColor transition-transform rounded-full duration-300 ${
+                isStories ? "transform translate-x-0" : "transform translate-x-full"
+              }`}
+            />
+            <div className="absolute inset-0 border-2 border-secondaryColor rounded-full flex items-center justify-between px-2">
+              <button
+                onClick={() => setIsStories(true)}
+                className={`w-1/2 text-center py-2 pr-2 rounded-l-full ${
+                  isStories ? "text-primaryColor" : "text-secondaryColor"
+                }`}
+              >
+                Stories
+              </button>
+              <button
+                onClick={() => setIsStories(false)}
+                className={`w-1/2 text-center py-2 pl-2 rounded-r-full ${
+                  isStories ? "text-secondaryColor" : "text-primaryColor"
+                }`}
+              >
+                Sitcoms
+              </button>
+            </div>
+          </div>
+          {!isStories && (
             <select
               value={selectedSitcom}
               onChange={handleSitcomChange}
@@ -123,13 +153,13 @@ const Generate: React.FC = () => {
               <option value="How I Met Your Mother">How I Met Your Mother</option>
               <option value="The Office">The Office</option>
             </select>
-            <h2 className="text-xl font-bold text-secondaryColor py-2">Recent</h2>
-            <p className="text-m text-secondaryColor py-1">Topic name</p>
-            <p className="text-m text-secondaryColor py-1">Topic name</p>
-            <p className="text-m text-secondaryColor py-1">Topic name</p>
-            <p className="text-m text-secondaryColor py-1">Topic name</p>
-            <p className="text-m text-secondaryColor py-1">Topic name</p>
-          </div>
+          )}
+          <h2 className="text-xl font-bold text-secondaryColor py-2">Recent</h2>
+          <p className="text-m text-secondaryColor py-1">Topic name</p>
+          <p className="text-m text-secondaryColor py-1">Topic name</p>
+          <p className="text-m text-secondaryColor py-1">Topic name</p>
+          <p className="text-m text-secondaryColor py-1">Topic name</p>
+          <p className="text-m text-secondaryColor py-1">Topic name</p>
         </div>
       )}
       {!sidebarOpen && (
