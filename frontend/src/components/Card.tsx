@@ -5,11 +5,12 @@ interface CardProps {
   id: number;
   image: string;
   title: string;
+  type: "story" | "sitcom"; // Added type prop to distinguish between stories and sitcoms
 }
 
-const Card: React.FC<CardProps> = ({ id, image, title }) => {
+const Card: React.FC<CardProps> = ({ id, image, title, type }) => {
   return (
-    <Link to={`/card/${id}`} className="block w-[200px] rounded-lg ">
+    <Link to={`/card/${id}?type=${type}`} className="block w-[200px] rounded-lg">
       <img
         src={image}
         alt={title}
@@ -23,3 +24,4 @@ const Card: React.FC<CardProps> = ({ id, image, title }) => {
 };
 
 export default Card;
+

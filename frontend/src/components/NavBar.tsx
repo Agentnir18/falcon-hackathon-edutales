@@ -16,7 +16,7 @@ const NavBar = () => {
         <Link to="/sitcoms" className="bg-primaryColor rounded-full text-xs border-2 px-10 py-1 text-secondaryColor hover:bg-secondaryColor hover:text-primaryColor">
           Sitcoms
         </Link>
-        <Link to="/generate" target="_blank" rel="noopener noreferrer" className="bg-primaryColor rounded-full text-xs border-2 px-10 py-1 text-secondaryColor hover:bg-secondaryColor hover:text-primaryColor">
+        <Link to="/generate" className="bg-primaryColor rounded-full text-xs border-2 px-10 py-1 text-secondaryColor hover:bg-secondaryColor hover:text-primaryColor">
           Generate
         </Link>
         <Link to="/about" className="bg-primaryColor rounded-full text-xs border-2 px-10 py-1 text-secondaryColor hover:bg-secondaryColor hover:text-primaryColor">

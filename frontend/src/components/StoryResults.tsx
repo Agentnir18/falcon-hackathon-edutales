@@ -32,7 +32,13 @@ const Results = () => {
     <div className='flex justify-center items-center flex-col py-4'>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
         {currentCards.map((card) => (
-          <Card {...card} />
+          <Card
+          key={card.id}
+          id={card.id}
+          image={card.image}
+          title={card.title}
+          type="story" 
+        />
         ))}
       </div>
       <div className='flex justify-center items-center mt-8'>
