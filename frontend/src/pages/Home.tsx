@@ -23,7 +23,11 @@ const Home = () => {
           What our Project does
         </h2>
         <p className="text-lg text-secondaryColor mt-2">
-          Something I am too lazy to type right now
+        Ever felt something is hard to learn ?
+        Can't grasp concepts ?
+        Tired of hard to understand theory ?
+        We introduce to you StoryWise
+        Learn concepts through stories or sitcoms where characters talk about the concepts in a simple, easy to understand and engaging manner.
         </p>
       </div>
 

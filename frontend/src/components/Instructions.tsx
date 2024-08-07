@@ -17,7 +17,7 @@ const tutorialSteps = [
     },
     {
       step: 3,
-      heading: "Enjoy reading and Understanding",
+      heading: "Read, Understand and Enjoy",
       description: "Read and understand the story or sitcom to gain insights.",
       icon: faBookOpenReader
     }

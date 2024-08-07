@@ -20,9 +20,6 @@ const CardSlider: React.FC<CardSliderProps> = ({ title }) => {
     }
   };
 
-  const handleToggle = () => {
-    setIsStories((prev) => !prev);
-  };
 
   const dataToDisplay = isStories ? cardData.stories : cardData.sitcoms;
 

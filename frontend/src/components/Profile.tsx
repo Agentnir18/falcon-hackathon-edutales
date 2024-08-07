@@ -5,11 +5,12 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 interface ProfileProps {
   name: string;
   image: string;
+  role: string;
   linkedin?: string;
   github?: string;
 }
 
-const Profile: React.FC<ProfileProps> = ({ name, image, linkedin, github }) => {
+const Profile: React.FC<ProfileProps> = ({ name, image, role, linkedin, github }) => {
   return (
     <div className="flex flex-col items-center text-center">
       <div className="relative w-40 h-40 mb-4">
@@ -20,6 +21,7 @@ const Profile: React.FC<ProfileProps> = ({ name, image, linkedin, github }) => {
         />
       </div>
       <h2 className="text-xl font-semibold text-secondaryColor">{name}</h2>
+      <span className="text-md text-secondaryColor">{role}</span>
       <div className="flex space-x-4 mt-2">
         {linkedin && (
           <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-secondaryColor">
