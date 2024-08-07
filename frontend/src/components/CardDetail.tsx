@@ -50,8 +50,6 @@ const CardDetail = () => {
           <div className="mt-6">
             <Link
               to="/generate"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-secondaryColor text-primaryColor font-bold px-4 py-2 rounded-md"
             >
               Let's generate!

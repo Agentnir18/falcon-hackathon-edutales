@@ -37,7 +37,7 @@ const Results = () => {
           id={card.id}
           image={card.image}
           title={card.title}
-          type="story" 
+          type="sitcom" 
         />
         ))}
       </div>
