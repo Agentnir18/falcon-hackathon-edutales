@@ -3,41 +3,41 @@ import Profile from "../components/Profile";
 const teamMembers = [
   {
     name: "Mohammed R. Swara",
-    image: "src/assets/0123b740d704d26d0be7c5eb3e90838f.jfif",
+    image: "assets/0123b740d704d26d0be7c5eb3e90838f.jfif",
     role: "UI/UX Designer",
     linkedin: "https://iq.linkedin.com/in/mohammed-swara-3a4673182",
   },
   {
     name: "Jerom Jo",
-    image: "src/assets/jerom.jfif",
+    image: "assets/jerom.jfif",
     role: "Backend Developer/ AI Engineer",
     linkedin: "https://www.linkedin.com/in/jerom-jo-manthara",
     github: "https://github.com/lordgrim18",
   },
   {
     name: "Sajjad Ahmed",
-    image: "src/assets/sajjad.jpg",
+    image: "assets/sajjad.jpg",
     role: "",
     linkedin:
       "https://www.linkedin.com/in/sajjad-ahmad-609a84266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
   {
     name: "Nirvan Bajracharya",
-    image: "https://github.com/Agentnir18/falcon-hackathon-edutales/blob/master/frontend/src/assets/Nir1.png?raw=true",
+    image: "assets/Nir1.png",
     role: "Frontend Developer",
     linkedin: "https://www.linkedin.com/in/nirvanbajracharya/",
     github: "https://github.com/Agentnir18",
   },
   {
     name: "Dhruvaraj Nikam",
-    image: "src/assets/dhruv.jfif",
+    image: "assets/dhruv.jfif",
     role: "",
     linkedin: "https://www.linkedin.com/in/dhruvaraj-nikam-778702259/",
     github: "https://github.com/dhruvarajnikkam",
   },
   {
     name: "Shamas Liaqat",
-    image: "src/assets/shamas.png",
+    image: "assets/shamas.png",
     role: "Assistant AI Engineer",
     linkedin: "https://www.linkedin.com/in/shamasliaqat/",
     github: "https://github.com/Shamas245",
