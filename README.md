@@ -39,6 +39,12 @@ Story Wise aims to revolutionize education by making learning more intuitive, en
 
 ![Sitcom Script Result](./screenshots/generate_sitcom_2.png)
 
+## Demo Video
+
+<video src="./screenshots/Story_Wise_Video_Presentation.mp4" controls="controls" style="max-width: 100%;">
+    Your browser does not support the video tag.
+</video>
+
 ## Frontend Setup
 
 Read the [frontend README](./frontend/README.md) for instructions on setting up the frontend.
