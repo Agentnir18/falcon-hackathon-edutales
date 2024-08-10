@@ -41,9 +41,7 @@ Story Wise aims to revolutionize education by making learning more intuitive, en
 
 ## Demo Video
 
-<video src="./screenshots/Story_Wise_Video_Presentation.mp4" controls="controls" style="max-width: 100%;">
-    Your browser does not support the video tag.
-</video>
+[![Story Wise Demo](https://drive.google.com/file/d/1uQnZtGxKhlRaDwYSTvKn6waVOcpN-_D5/view?usp=sharing)](https://drive.google.com/file/d/1uQnZtGxKhlRaDwYSTvKn6waVOcpN-_D5/view?usp=sharing)
 
 ## Frontend Setup
 
